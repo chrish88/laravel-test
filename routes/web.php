@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return response()->json([
-        'stuff' => phpinfo()
-    ]);
+    return view('welcome');
 
     // return view('welcome', [
     //     'param' => request('param')
@@ -26,4 +24,5 @@ Route::get('/', function () {
 
 Route::get('/pizzas', 'PizzasController@index');
 Route::get('/pizzas/create', 'PizzasController@create');
+Route::post('/pizzas', 'PizzasController@store');
 Route::get('/pizzas/{id}', 'PizzasController@show');

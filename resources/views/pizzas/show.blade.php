@@ -21,7 +21,9 @@
         </div>
     </header>
     <div class="content">
-
+        Ordered by - {{ $pizza['name'] }}
+        Type - {{ $pizza['type'] }}
+        Base - {{ $pizza['base'] }}
     </div>
 </div>
 @endsection

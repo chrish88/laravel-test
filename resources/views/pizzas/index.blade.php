@@ -21,12 +21,13 @@
         </div>
     </header>
     <div class="content">
-        @foreach( $pizzas as $pizza )
+        
         <div class="">
-        <p>{{ $pizza['name'] }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}</p>
+        {{-- <p>{{ $req['name'] }} - {{ $req['type'] }} - {{ $req['base'] }}</p> --}}
+
         </div>
 
-        @endforeach
+      
     </div>
 </div>
 @endsection

@@ -1,27 +1,27 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-    <header class="headerpppppp">
-        <div class="title m-b-md">
-            Pizzas - 
-        </div>
-    </header>
-    <div class="content">
-        <p>add a new pizza</p>
-    </div>
+<div class="wrapper create-pizza">
+    <h1 class="create-heading">create a pizza</h1>
+    <form action="/pizzas" method="POST">
+        @csrf
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="type">Choose Your Pizza:</label>
+        <select name="type" id="type">
+            <option value="select">-select-</option>
+            @foreach($pizzas as $pizza)
+            <option value="{{ $pizza['type'] }}">{{ $pizza['type'] }}</option>
+            @endforeach
+        </select>
+        <label for="base">Choose Your Base:</label>
+        <select name="base" id="base">
+            <option value="select">-select-</option>
+            @foreach($pizzas as $pizza)
+            <option value="{{ $pizza['base'] }}">{{ $pizza['base'] }}</option>
+            @endforeach
+        </select>
+        <input type="submit" id="submit" value="Place Order">
+    
+    </form> 
 </div>
 @endsection
