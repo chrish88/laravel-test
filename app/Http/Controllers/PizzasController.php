@@ -52,7 +52,7 @@ class PizzasController extends Controller
 
         $pizza->save();
         
-        return redirect('/');
+        return redirect('/')->with('message', '');
     }
 
     /**
