@@ -19,10 +19,11 @@ class PizzasController extends Controller
         //Get all pizza records
         // $pizzas = Pizzas::all();
 
-        $pizzas = Pizzas::orderBy('name')->get();
+        // $pizzas = Pizzas::orderBy('name')->get();
+        $pizzas = Pizzas::all();
 
         return view('pizzas.index', [
-            'pizzas' => $pizzas,
+            'pizzas' => $pizzas
         ]);
     }
 
@@ -47,15 +48,16 @@ class PizzasController extends Controller
     {
         $pizza = new Pizzas();
 
-        $pizza->name = request('name');
-        $pizza->type = request('type');
-        $pizza->base = request('base');
+        $pizza->name        = request('name');
+        $pizza->type        = request('type');
+        $pizza->base        = request('base');
+        $pizza->toppings    = request('toppings');
 
-        //$pizza->save();
+        $pizza->save();
         
-        //return redirect('/')->with('message', 'Thank you for placing an order');
+        return redirect('/')->with('message', 'Thank you for placing an order');
 
-        return request('toppings');
+        //return request('toppings');
     }
 
     /**

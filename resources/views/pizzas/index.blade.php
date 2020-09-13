@@ -23,8 +23,18 @@
     <div class="content">
         
         <div class="">
-        {{-- <p>{{ $req['name'] }} - {{ $req['type'] }} - {{ $req['base'] }}</p> --}}
-
+        @foreach($pizzas as $pizza)
+            <p>{{ $pizza['name'] }} - {{ $pizza['type'] }} - {{ $pizza['base'] }}</p>
+            @if($pizza['toppings'])
+            <p>Toppings:</p>
+        
+            <ul>
+                @foreach($pizza['toppings'] as $topping)
+                <li>{{ $topping }}</li>
+                @endforeach
+            </ul>
+            @endif
+        @endforeach
         </div>
 
       

@@ -21,9 +21,15 @@
         </div>
     </header>
     <div class="content">
-        Ordered by - {{ $pizza['name'] }}
-        Type - {{ $pizza['type'] }}
-        Base - {{ $pizza['base'] }}
+        <p class="name"> Ordered by - {{ $pizza['name'] }}</p>
+        <p class="type">Type - {{ $pizza['type'] }}</p> 
+        <p class="base">Base - {{ $pizza['base'] }}</p> 
+        <p class="toppings">Toppings -</p> 
+        <ul>
+            @foreach( $pizza->toppings as $topping )
+            <li>{{ $topping }}</li>
+            @endforeach
+        </ul>
     </div>
 </div>
 @endsection
