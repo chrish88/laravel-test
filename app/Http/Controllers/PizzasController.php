@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pizzas;
+use App\PizzaTypes;
 use Illuminate\Http\Request;
 
 
@@ -32,7 +33,7 @@ class PizzasController extends Controller
      */
     public function create()
     {
-        $pizzas = Pizzas::all();
+        $pizzas = PizzaTypes::all();
         return view('pizzas.create', ['pizzas' => $pizzas]);
     }
 
@@ -50,9 +51,11 @@ class PizzasController extends Controller
         $pizza->type = request('type');
         $pizza->base = request('base');
 
-        $pizza->save();
+        //$pizza->save();
         
-        return redirect('/')->with('message', '');
+        //return redirect('/')->with('message', 'Thank you for placing an order');
+
+        return request('toppings');
     }
 
     /**

@@ -16,7 +16,9 @@ class CreatePizzaTypesTable extends Migration
         Schema::create('pizza_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('type');
+            $table->string('crust');
+            $table->string('toppings');
             
         });
     }

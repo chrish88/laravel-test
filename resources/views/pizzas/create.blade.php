@@ -17,9 +17,15 @@
         <select name="base" id="base">
             <option value="select">-select-</option>
             @foreach($pizzas as $pizza)
-            <option value="{{ $pizza['base'] }}">{{ $pizza['base'] }}</option>
+            <option value="{{ $pizza['crust'] }}">{{ $pizza['crust'] }}</option>
             @endforeach
         </select>
+        <fieldset>
+            <label>Extra Toppings:</label><br>
+            @foreach($pizzas as $pizza)
+            <input type="checkbox" name="toppings[]" value="{{ $pizza['toppings'] }}">{{ $pizza['toppings'] }}<br>
+            @endforeach
+        </fieldset>
         <input type="submit" id="submit" value="Place Order">
     
     </form> 
