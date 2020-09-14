@@ -101,8 +101,12 @@ class PizzasController extends Controller
      * @param  \App\Pizzas  $pizzas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pizzas $pizzas)
+    public function destroy($id)
     {
-        //
+        $pizza = Pizzas::findOrFail($id);
+
+        $pizza->delete();
+        
+        return redirect('/pizzas');
     }
 }
