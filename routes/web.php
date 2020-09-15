@@ -22,11 +22,11 @@ Route::get('/', function () {
     // ]);
 });
 
-Route::get('/pizzas', 'PizzasController@index');
-Route::get('/pizzas/create', 'PizzasController@create');
-Route::post('/pizzas', 'PizzasController@store');
-Route::get('/pizzas/{id}', 'PizzasController@show');
-Route::delete('/pizzas/{id}', 'PizzasController@destroy');
+Route::get('/pizzas', 'PizzasController@index')->name('pizza.index')->middleware('auth');
+Route::get('/pizzas/create', 'PizzasController@create')->name('pizza.create');
+Route::post('/pizzas', 'PizzasController@store')->name('pizza.store');
+Route::get('/pizzas/{id}', 'PizzasController@show')->name('pizza.show');
+Route::delete('/pizzas/{id}', 'PizzasController@destroy')->name('pizza.destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
